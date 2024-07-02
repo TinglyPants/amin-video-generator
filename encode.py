@@ -1,6 +1,6 @@
 from PIL import Image
 
-image = Image.open("source/test_image.jpg").resize((300, 300)) # for testing purposes, resized to 300 by 300
+image = Image.open("source/test_image.jpg").resize((500, 300)) # for testing purposes, resized to 500 by 300
 out_file = open("raw_images/test_image.raw", "wb")
 
 width = image.width
