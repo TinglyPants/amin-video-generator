@@ -328,6 +328,13 @@ public:
                     }
                 }
 
+                // Ignore pixels on edge of image (1 pixel buffer because 3x3 kernel.)
+                if (y == 1 || x == 1 || y == height - 2 || x == width - 2 || y == 0 || x == 0 || y == height - 1 || x == width - 1)
+                {
+                    magnitude = static_cast<uint8_t>(0);
+                    direction = static_cast<char>(0x00);
+                }
+
                 char magnitudeBuffer[1] = {static_cast<char>(magnitude)};
                 char directionBuffer[1] = {direction};
                 outFile.write(magnitudeBuffer, 1);
